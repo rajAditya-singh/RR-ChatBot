@@ -113,10 +113,10 @@ userInput.addEventListener("keypress", (e) => {
 // Backend GPT API call
 async function getBotReply(message) {
   try {
-    const response = await fetch("https://api.openai.com/v1/responses", {
+    const response = await fetch("http://localhost:5000/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
+      body: JSON.stringify({ message }),
     });
     const data = await response.json();
     return data.reply;
