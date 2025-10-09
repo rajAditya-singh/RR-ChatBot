@@ -1,3 +1,4 @@
+//script.js
 // Elements
 const chatToggle = document.querySelector(".chat-toggle");
 const chatbot = document.querySelector(".chatbot-container");
