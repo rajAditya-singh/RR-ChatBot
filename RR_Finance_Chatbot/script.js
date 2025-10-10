@@ -6,6 +6,7 @@ const chatBody = document.querySelector(".chat-body");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 const chatForm = document.querySelector(".chat-input-form");
+const fileInput = document.getElementById("file-input");
 
 // Typing animation
 function showTyping() {
