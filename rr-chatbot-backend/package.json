@@ -12,6 +12,7 @@
     "bytes": "^3.1.2",
     "call-bind-apply-helpers": "^1.0.2",
     "call-bound": "^1.0.4",
+    "cheerio": "^1.1.2",
     "combined-stream": "^1.0.8",
     "content-disposition": "^1.0.0",
     "content-type": "^1.0.5",

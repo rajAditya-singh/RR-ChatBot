@@ -12,10 +12,11 @@ function showTyping() {
   const typing = document.createElement("div");
   typing.className = "typing";
   typing.innerHTML =
-    '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    'RR Finance Assistant is typing <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
   chatBody.appendChild(typing);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
+
 
 function removeTyping() {
   const typing = chatBody.querySelector(".typing");

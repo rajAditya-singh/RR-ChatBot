@@ -14,14 +14,14 @@
 <body>
 
   <!-- Floating Chat Button -->
-  <button class="chat-toggle btn btn-primary rounded-circle">💬</button>
+  <button class="chat-toggle">💬</button>
 
   <!-- Chatbot Container -->
   <div class="chatbot-container" id="chatbot">
-
     <!-- Chat Header -->
-    <div class="chat-header text-white text-center fw-semibold">
-      RR Finance Assistant
+    <div class="chat-header">
+      <img src="https://www.rrfinance.com/images/logo.png" alt="RR Finance" class="bot-logo">
+      <span>RR Finance Assistant</span>
     </div>
 
     <!-- Chat Body -->
@@ -32,13 +32,12 @@
     </div>
 
     <!-- Input Area -->
-    <div class="chat-input d-flex p-2 border-top bg-white">
+    <div class="chat-input">
       <form class="chat-input-form d-flex w-100">
-        <input type="text" id="user-input" class="form-control me-2" placeholder="Type your message...">
-        <button type="submit" id="send-btn" class="btn btn-primary">Send</button>
+        <input type="text" id="user-input" class="form-control" placeholder="Ask me about SIPs, Mutual Funds, IPOs...">
+        <button type="submit" id="send-btn" class="btn">Send</button>
       </form>
     </div>
-
   </div>
 
   <script src="script.js"></script>
