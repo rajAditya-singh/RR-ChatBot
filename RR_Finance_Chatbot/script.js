@@ -1,4 +1,3 @@
-//script.js
 // Elements
 const chatToggle = document.querySelector(".chat-toggle");
 const chatbot = document.querySelector(".chatbot-container");
@@ -6,18 +5,21 @@ const chatBody = document.querySelector(".chat-body");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 const chatForm = document.querySelector(".chat-input-form");
-const fileInput = document.getElementById("file-input");
+
+// Initial bot welcome message
+// window.addEventListener("DOMContentLoaded", () => {
+//   addMessage("🤖 Hi! I’m RR Finance Assistant — trained on RR Finance data to help you with investments, mutual funds, IPOs, and more. How can I assist you today?", "bot");
+// });
 
 // Typing animation
 function showTyping() {
   const typing = document.createElement("div");
   typing.className = "typing";
   typing.innerHTML =
-    'RR Finance Assistant is typing <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
   chatBody.appendChild(typing);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
-
 
 function removeTyping() {
   const typing = chatBody.querySelector(".typing");
@@ -39,7 +41,7 @@ function scrollToBottom() {
 }
 
 // Quick replies
-const quickReplies = ["SIP Plans", "Mutual Funds", "EMI Calculator", "Account Status"];
+const quickReplies = ["SIP Plans", "Mutual Funds", "Current IPOs", "RR Finance Services"];
 function showQuickReplies() {
   removeQuickReplies();
   const quickDiv = document.createElement("div");
@@ -78,38 +80,16 @@ function hasUserMessages() {
   return chatBody.querySelector(".user-message") !== null;
 }
 
-// Toggle chat
+// Toggle chat visibility
 chatToggle.addEventListener("click", () => {
   chatbot.classList.toggle("open");
 
   if (chatbot.classList.contains("open")) {
     if (!hasUserMessages()) {
-      setTimeout(showQuickReplies, 500);
+      setTimeout(showQuickReplies, 700);
     }
   } else {
     removeQuickReplies();
-  }
-});
-
-// Send input message via button
-sendBtn.addEventListener("click", async () => {
-  const text = userInput.value.trim();
-  if (!text) return;
-
-  addMessage(text, "user");
-  userInput.value = "";
-  removeQuickReplies();
-  showTyping();
-  const botReply = await getBotReply(text);
-  removeTyping();
-  addMessage(botReply, "bot");
-  scrollToBottom();
-});
-
-// Send input message via Enter key
-userInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    sendBtn.click();
   }
 });
 
@@ -125,11 +105,11 @@ async function getBotReply(message) {
     return data.reply;
   } catch (err) {
     console.error("Fetch error:", err);
-    return "Sorry, something went wrong!";
+    return "⚠️ Sorry, something went wrong while fetching the reply.";
   }
 }
 
-// Form submission
+// Send message
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const userMessage = userInput.value.trim();
