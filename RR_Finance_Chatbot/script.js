@@ -7,9 +7,10 @@ const sendBtn = document.getElementById("send-btn");
 const chatForm = document.querySelector(".chat-input-form");
 
 // Initial bot welcome message
-// window.addEventListener("DOMContentLoaded", () => {
-//   addMessage("🤖 Hi! I’m RR Finance Assistant — trained on RR Finance data to help you with investments, mutual funds, IPOs, and more. How can I assist you today?", "bot");
-// });
+window.addEventListener("DOMContentLoaded", () => {
+  addMessage("👋 Hi! I’m RR Finance Assistant. How can I help you today?", "bot");
+  setTimeout(showQuickReplies, 800);
+});
 
 // Typing animation
 function showTyping() {
@@ -28,12 +29,27 @@ function removeTyping() {
 
 // Add message to chat
 function addMessage(text, sender) {
+  const msgContainer = document.createElement("div");
+  msgContainer.className = sender === "bot" ? "bot-message-container" : "user-message-container";
+
   const msg = document.createElement("div");
   msg.className = sender === "bot" ? "bot-message" : "user-message";
   msg.textContent = text;
-  chatBody.appendChild(msg);
+
+  // 🔹 If it's a bot message, add RR Finance logo
+  if (sender === "bot") {
+    const logo = document.createElement("img");
+    logo.src = "./assets/logo.png"; // ✅ use your logo path
+    logo.alt = "RR Finance";
+    logo.className = "bot-logo";
+    msgContainer.appendChild(logo);
+  }
+
+  msgContainer.appendChild(msg);
+  chatBody.appendChild(msgContainer);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
+
 
 // Scroll to bottom helper
 function scrollToBottom() {
