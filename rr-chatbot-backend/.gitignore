@@ -1,0 +1,10 @@
+# Ignore environment and secret files
+.env
+
+# Ignore node dependencies
+node_modules/
+
+# Ignore system and temporary files
+*.log
+.DS_Store
+thumbs.db
